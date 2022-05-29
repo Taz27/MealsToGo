@@ -1,0 +1,21 @@
+{
+    "root": true,
+    "env": {
+        "es2021": true,
+        "node": true,
+        "browser": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 13,
+        "sourceType": "module"
+      },
+    "plugins": ["@typescript-eslint"],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended", "@react-native-community", "prettier"],
+    "rules": {
+        "no-console": "off",
+        "no-unused-vars": "warn",
+        // "quotes": [2, "single", { "avoidEscape": true }]
+        "prettier/prettier": 1
+    }
+}

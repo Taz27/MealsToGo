@@ -11,7 +11,7 @@ export default function App() {
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <View style={styles.header}>
+        <View style={styles.search}>
           <Searchbar placeholder="Search" onChangeText={setSearchQuery} value={searchQuery} />
         </View>
         <View style={styles.content}>
@@ -29,9 +29,8 @@ const styles = StyleSheet.create({
     paddingTop: isAndroid ? StatusBar.currentHeight : 0,
     backgroundColor: 'white',
   },
-  header: {
+  search: {
     padding: 16,
-    backgroundColor: 'green',
   },
   content: {
     flex: 1,

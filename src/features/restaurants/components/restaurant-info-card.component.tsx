@@ -16,7 +16,7 @@ interface RestaurantProps {
   restaurant: Restaurant;
 }
 
-export const RestaurantInfo: React.FC<RestaurantProps> = ({ restaurant = {} }) => {
+export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant = {} }) => {
   const {
     name = 'Some Restaurant',
     icon,

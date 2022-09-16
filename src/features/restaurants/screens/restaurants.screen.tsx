@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { StyleSheet, View, SafeAreaView, StatusBar, Platform } from 'react-native';
-import { RestaurantInfo } from '../components/restaurant-info.component';
+import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
 
 const isAndroid: boolean = Platform.OS === 'android';
 
@@ -14,7 +14,7 @@ export const RestaurantsScreen: React.FC = () => {
         <Searchbar placeholder="Search" onChangeText={setSearchQuery} value={searchQuery} />
       </View>
       <View style={styles.content}>
-        <RestaurantInfo />
+        <RestaurantInfoCard />
       </View>
     </SafeAreaView>
   );

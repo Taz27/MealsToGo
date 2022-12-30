@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { Card } from 'react-native-paper';
+import { Theme } from '../../../infra/theme/types';
 
 type Restaurant = {
   name: string;
@@ -16,18 +17,23 @@ interface RestaurantProps {
   restaurant: Restaurant;
 }
 
+interface ThemeProps {
+  theme: Theme;
+}
+
 const Title = styled.Text`
-  padding: ${(props: any) => props.theme.space[3]};
-  color: ${(props: any) => props.theme.colors.ui.primary};
+  font-family: ${(props: ThemeProps) => props.theme.fonts.body};
+  padding: ${(props: ThemeProps) => props.theme.space[3]};
+  color: ${(props: ThemeProps) => props.theme.colors.ui.primary};
 `;
 
 const RestaurantCard = styled(Card)`
-  background-color: ${(props: any) => props.theme.colors.bg.primary};
+  background-color: ${(props: ThemeProps) => props.theme.colors.bg.primary};
 `;
 
 const RestaurantCardCover = styled(Card.Cover)`
-  background-color: ${(props: any) => props.theme.colors.bg.primary};
-  padding: ${(props: any) => props.theme.space[3]};
+  background-color: ${(props: ThemeProps) => props.theme.colors.bg.primary};
+  padding: ${(props: ThemeProps) => props.theme.space[3]};
 `;
 
 export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant = {} }) => {

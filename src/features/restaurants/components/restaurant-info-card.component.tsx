@@ -17,17 +17,17 @@ interface RestaurantProps {
 }
 
 const Title = styled.Text`
-  padding: 16px;
+  padding: ${(props: any) => props.theme.space[3]};
   color: ${(props: any) => props.theme.colors.ui.primary};
 `;
 
 const RestaurantCard = styled(Card)`
-  background-color: white;
+  background-color: ${(props: any) => props.theme.colors.bg.primary};
 `;
 
 const RestaurantCardCover = styled(Card.Cover)`
-  background-color: white;
-  padding: 20px;
+  background-color: ${(props: any) => props.theme.colors.bg.primary};
+  padding: ${(props: any) => props.theme.space[3]};
 `;
 
 export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant = {} }) => {

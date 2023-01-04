@@ -1,12 +1,20 @@
 import React from 'react';
-import { Text, Image } from 'react-native';
-import styled from 'styled-components/native';
-import { Card } from 'react-native-paper';
 import { SvgXml } from 'react-native-svg';
-import { Theme } from '../../../infra/theme/types';
+import { Text } from '../../../components/typography/text.component';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 import { Spacer } from '../../../components/spacer/spacer.component';
+
+import {
+  RestaurantCard,
+  RestaurantCardCover,
+  Info,
+  Section,
+  SectionEnd,
+  Rating,
+  Icon,
+  Address,
+} from './restaurant-info-card.styles';
 
 type Restaurant = {
   name: string;
@@ -21,51 +29,6 @@ type Restaurant = {
 interface RestaurantProps {
   restaurant: Restaurant;
 }
-
-interface ThemeProps {
-  theme: Theme;
-}
-
-const Title = styled.Text`
-  font-family: ${(props: ThemeProps) => props.theme.fonts.heading};
-  font-size: ${(props: ThemeProps) => props.theme.fontSizes.body};
-  color: ${(props: ThemeProps) => props.theme.colors.ui.primary};
-`;
-
-const Address = styled.Text`
-  font-family: ${(props: ThemeProps) => props.theme.fonts.body};
-  font-size: ${(props: ThemeProps) => props.theme.fontSizes.caption};
-`;
-
-const RestaurantCard = styled(Card)`
-  background-color: ${(props: ThemeProps) => props.theme.colors.bg.primary};
-`;
-
-const RestaurantCardCover = styled(Card.Cover)`
-  background-color: ${(props: ThemeProps) => props.theme.colors.bg.primary};
-  padding: ${(props: ThemeProps) => props.theme.space[3]};
-`;
-
-const Info = styled.View`
-  padding: ${(props: ThemeProps) => props.theme.space[3]};
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-  padding-top: ${(props: ThemeProps) => props.theme.space[2]};
-  padding-bottom: ${(props: ThemeProps) => props.theme.space[2]};
-`;
-
-const Section = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
-const SectionEnd = styled.View`
-  flex: 1;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
 
 export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant = {} }) => {
   const {
@@ -86,7 +49,7 @@ export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant = {} 
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <Section>
           <Rating>
             {ratingArray.map((_rating, index) => (
@@ -94,14 +57,12 @@ export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant = {} 
             ))}
           </Rating>
           <SectionEnd>
-            {isClosedTemporarily && (
-              <Text style={{ color: 'red', fontSize: 12 }}>CLOSED TEMPORARILY</Text>
-            )}
+            {isClosedTemporarily && <Text variant="error">CLOSED TEMPORARILY</Text>}
             <Spacer position="left" size="large">
               {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
             </Spacer>
             <Spacer position="left" size="large">
-              <Image source={{ uri: icon }} style={{ width: 15, height: 15 }} />
+              <Icon source={{ uri: icon }} />
             </Spacer>
           </SectionEnd>
         </Section>

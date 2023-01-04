@@ -2,53 +2,41 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { Theme } from '../../infra/theme/types';
 
-interface ThemeProps {
-  theme: Theme;
-}
+const sizeVariant = {
+  small: 1,
+  medium: 2,
+  large: 3,
+};
 
-interface SpacerProps {
-  variant: string;
-}
+const positionVariant = {
+  top: 'marginTop',
+  left: 'marginLeft',
+  right: 'marginRight',
+  bottom: 'marginBottom',
+};
 
-const TopSmall = styled.View`
-  margin-top: ${(props: ThemeProps) => props.theme.space[1]};
+type sizeKeys = keyof typeof sizeVariant;
+type positionKeys = keyof typeof positionVariant;
+
+const getVariant = (position: positionKeys, size: sizeKeys, theme: Theme) => {
+  const sizeIndex = sizeVariant[size];
+  const property = positionVariant[position];
+  const value = theme.space[sizeIndex];
+
+  return `${property}: ${value}`;
+};
+
+export const Spacer: React.FC<{
+  position: positionKeys;
+  size: sizeKeys;
+  theme?: Theme;
+  children: any;
+}> = styled.View`
+  ${({ position, size, theme }: { position: positionKeys; size: sizeKeys; theme: Theme }) =>
+    getVariant(position, size, theme)}
 `;
 
-const TopMedium = styled.View`
-  margin-top: ${(props: ThemeProps) => props.theme.space[2]};
-`;
-
-const TopLarge = styled.View`
-  margin-top: ${(props: ThemeProps) => props.theme.space[3]};
-`;
-
-const LeftSmall = styled.View`
-  margin-left: ${(props: ThemeProps) => props.theme.space[1]};
-`;
-
-const LeftMedium = styled.View`
-  margin-left: ${(props: ThemeProps) => props.theme.space[2]};
-`;
-
-const LeftLarge = styled.View`
-  margin-left: ${(props: ThemeProps) => props.theme.space[3]};
-`;
-
-export const Spacer: React.FC<SpacerProps> = ({ variant = '' }) => {
-  if (variant === 'top.medium') {
-    return <TopMedium />;
-  }
-  if (variant === 'top.large') {
-    return <TopLarge />;
-  }
-  if (variant === 'left.small') {
-    return <LeftSmall />;
-  }
-  if (variant === 'left.medium') {
-    return <LeftMedium />;
-  }
-  if (variant === 'left.large') {
-    return <LeftLarge />;
-  }
-  return <TopSmall />;
+Spacer.defaultProps = {
+  position: 'top',
+  size: 'small',
 };

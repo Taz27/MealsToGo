@@ -97,10 +97,12 @@ export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant = {} 
             {isClosedTemporarily && (
               <Text style={{ color: 'red', fontSize: 12 }}>CLOSED TEMPORARILY</Text>
             )}
-            <Spacer variant="left.large" />
-            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <Spacer variant="left.large" />
-            <Image source={{ uri: icon }} style={{ width: 15, height: 15 }} />
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Image source={{ uri: icon }} style={{ width: 15, height: 15 }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <Address>{address}</Address>

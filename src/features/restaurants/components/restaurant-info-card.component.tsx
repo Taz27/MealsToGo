@@ -6,6 +6,7 @@ import { SvgXml } from 'react-native-svg';
 import { Theme } from '../../../infra/theme/types';
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
+import { Spacer } from '../../../components/spacer/spacer.component';
 
 type Restaurant = {
   name: string;
@@ -93,11 +94,13 @@ export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant = {} 
             ))}
           </Rating>
           <SectionEnd>
-            {isClosedTemporarily && <Text style={{ color: 'red', marginRight: 16 }}>CLOSED TEMPORARILY</Text>}
-
+            {isClosedTemporarily && (
+              <Text style={{ color: 'red', fontSize: 12 }}>CLOSED TEMPORARILY</Text>
+            )}
+            <Spacer variant="left.large" />
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-
-            <Image source={{ uri: icon }} style={{ width: 15, height: 15, marginLeft: 16 }} />
+            <Spacer variant="left.large" />
+            <Image source={{ uri: icon }} style={{ width: 15, height: 15 }} />
           </SectionEnd>
         </Section>
         <Address>{address}</Address>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled, { useTheme } from 'styled-components/native';
 import { Theme } from '../../infra/theme/types';
 
 const sizeVariant = {
@@ -26,15 +26,20 @@ const getVariant = (position: positionKeys, size: sizeKeys, theme: Theme) => {
   return `${property}: ${value}`;
 };
 
+const SpacerView = styled.View`
+  ${({ variant }: { variant: string }) => variant}
+`;
+
 export const Spacer: React.FC<{
   position: positionKeys;
   size: sizeKeys;
-  theme?: Theme;
   children: any;
-}> = styled.View`
-  ${({ position, size, theme }: { position: positionKeys; size: sizeKeys; theme: Theme }) =>
-    getVariant(position, size, theme)}
-`;
+}> = ({ position, size, children }) => {
+  const theme = useTheme() as Theme;
+  const variant = getVariant(position, size, theme);
+
+  return <SpacerView variant={variant}>{children}</SpacerView>;
+};
 
 Spacer.defaultProps = {
   position: 'top',

@@ -42,7 +42,6 @@ export const RestaurantsScreen: React.FC = () => {
         <Searchbar placeholder="Search" onChangeText={setSearchQuery} value={searchQuery} />
       </SearchContainer>
       <RestaurantListContainer>
-        {/* <RestaurantInfoCard /> */}
         <RestaurantList
           data={[
             { name: 1 },

@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
-import { View, SafeAreaView, StatusBar, Platform, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
 import { Theme } from '../../../infra/theme/types';
 import { Spacer } from '../../../components/spacer/spacer.component';
+import { SafeArea } from '../../../components/utils/safearea.component';
 
 interface ThemeProps {
   theme: Theme;
 }
-
-const isAndroid: boolean = Platform.OS === 'android';
-
-const SafeArea = styled(SafeAreaView)`
-  flex: 1;
-  padding-top: ${isAndroid ? StatusBar.currentHeight : 0}px;
-  background-color: white;
-`;
 
 const SearchContainer = styled(View)`
   padding: ${(props: ThemeProps) => props.theme.space[3]};

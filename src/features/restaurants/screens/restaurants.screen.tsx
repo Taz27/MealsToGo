@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
-import { View, SafeAreaView, StatusBar, Platform } from 'react-native';
+import { View, SafeAreaView, StatusBar, Platform, FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
 import { Theme } from '../../../infra/theme/types';
+import { Spacer } from '../../../components/spacer/spacer.component';
 
 interface ThemeProps {
   theme: Theme;
@@ -35,7 +36,32 @@ export const RestaurantsScreen: React.FC = () => {
         <Searchbar placeholder="Search" onChangeText={setSearchQuery} value={searchQuery} />
       </SearchContainer>
       <RestaurantListContainer>
-        <RestaurantInfoCard />
+        {/* <RestaurantInfoCard /> */}
+        <FlatList
+          data={[
+            { name: 1 },
+            { name: 2 },
+            { name: 3 },
+            { name: 4 },
+            { name: 5 },
+            { name: 6 },
+            { name: 7 },
+            { name: 8 },
+            { name: 9 },
+            { name: 10 },
+            { name: 11 },
+            { name: 12 },
+            { name: 13 },
+            { name: 14 },
+          ]}
+          renderItem={() => (
+            <Spacer position="bottom" size="large">
+              <RestaurantInfoCard />
+            </Spacer>
+          )}
+          keyExtractor={item => item.name.toString()}
+          contentContainerStyle={{ padding: 16 }}
+        />
       </RestaurantListContainer>
     </SafeArea>
   );

@@ -2,14 +2,22 @@ import React, { useState, createContext, useEffect, useMemo } from 'react';
 import { RestuarantTransformed } from './mock/types';
 import { restaurantsRequest, restaurantsTransform } from './restaurants.service';
 
-export const RestuarantsContext = createContext({});
+export const RestuarantsContext = createContext<{
+  restaurants: RestuarantTransformed[];
+  isLoading: boolean;
+  error: Error | null;
+}>({
+  restaurants: [],
+  isLoading: false,
+  error: null,
+});
 
 export const RestaurantsContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [restaurants, setRestaurants] = useState<RestuarantTransformed[]>([]);
-  const [isloading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
 
   const retrieveRestaurants = () => {
     setIsLoading(true);
@@ -36,7 +44,7 @@ export const RestaurantsContextProvider: React.FC<{ children: React.ReactNode }>
     <RestuarantsContext.Provider
       value={{
         restaurants,
-        isloading,
+        isLoading,
         error,
       }}
     >

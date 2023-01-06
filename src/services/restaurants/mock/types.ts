@@ -21,14 +21,7 @@ export interface RestuarantTransformed {
   openingHours: {
     openNow: boolean;
   };
-  photos: [
-    {
-      height: number;
-      htmlAttributions: string[];
-      photoReference: string;
-      width: number;
-    }
-  ];
+  photos: string[];
   placeId: string;
   plusCode: {
     compoundCode: string;

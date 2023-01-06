@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Searchbar } from 'react-native-paper';
+import { Searchbar, ActivityIndicator, MD2Colors } from 'react-native-paper';
 import { View, FlatList } from 'react-native';
 import styled from 'styled-components/native';
 import { RestaurantInfoCard } from '../components/restaurant-info-card.component';
@@ -33,6 +33,15 @@ export const RestaurantsScreen: React.FC = () => {
   const { restaurants, isLoading, error } = useContext(RestuarantsContext);
 
   console.log({ error });
+
+  if (isLoading) {
+    return (
+      <SafeArea style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator animating={true} color={MD2Colors.red800} size="large" />
+      </SafeArea>
+    );
+  }
+
   return (
     <SafeArea>
       <SearchContainer>

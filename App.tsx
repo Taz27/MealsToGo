@@ -12,6 +12,7 @@ import { theme } from './src/infra/theme';
 import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { OpaqueColorValue, Text } from 'react-native';
+import './src/services/restaurants/restaurants.service';
 
 function MapScreen() {
   return (

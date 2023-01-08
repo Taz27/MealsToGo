@@ -22,16 +22,17 @@ export const LocationContextProvider: React.FC<{ children: React.ReactNode }> = 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const onSearch = (searchKeyword = 'antwerp') => {
-    // console.log(searchKeyword);
-
+  const onSearch = (searchKeyword = 'San Francisco') => {
     setIsLoading(true);
     setKeyword(searchKeyword.trim());
-    if (!searchKeyword.length) {
+  };
+
+  useEffect(() => {
+    if (!keyword.length) {
       // don't do anything
       return;
     }
-    locationRequest(searchKeyword.toLowerCase())
+    locationRequest(keyword.toLowerCase())
       .then(locationTransform)
       .then(res => {
         setIsLoading(false);
@@ -43,11 +44,7 @@ export const LocationContextProvider: React.FC<{ children: React.ReactNode }> = 
         setError(err);
         console.log({ err });
       });
-  };
-
-  useEffect(() => {
-    onSearch();
-  }, []);
+  }, [keyword]);
 
   return (
     <LocationContext.Provider

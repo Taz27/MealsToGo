@@ -26,7 +26,7 @@ const RestaurantList = styled(FlatList).attrs({
 })``;
 
 export const RestaurantsScreen: React.FC = () => {
-  const { restaurants, isLoading, error } = useContext(RestuarantsContext);
+  const { restaurants, isLoading } = useContext(RestuarantsContext);
 
   if (isLoading) {
     return (

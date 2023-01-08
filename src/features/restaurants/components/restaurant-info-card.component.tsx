@@ -28,10 +28,11 @@ export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant }) =>
     photos = [
       'https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg',
     ],
-    vicinity = '100 some random street',
+    address = '100 some random street',
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId,
   } = restaurant;
 
   const ratingArray = new Array(Math.floor(rating)).fill(null);
@@ -44,7 +45,7 @@ export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant }) =>
         <Section>
           <Rating>
             {ratingArray.map((_rating, index) => (
-              <SvgXml key={index} xml={star} width={20} height={20} />
+              <SvgXml key={`star-${placeId}-${index}`} xml={star} width={20} height={20} />
             ))}
           </Rating>
           <SectionEnd>
@@ -57,7 +58,7 @@ export const RestaurantInfoCard: React.FC<RestaurantProps> = ({ restaurant }) =>
             </Spacer>
           </SectionEnd>
         </Section>
-        <Address>{vicinity}</Address>
+        <Address>{address}</Address>
       </Info>
     </RestaurantCard>
   );

@@ -34,6 +34,7 @@ export interface RestuarantTransformed {
   types: string[];
   userRatingsTotal: number;
   vicinity: string;
+  address: string;
   isOpenNow: boolean;
   isClosedTemporarily: boolean;
 }

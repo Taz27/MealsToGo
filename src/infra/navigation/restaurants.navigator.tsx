@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { RestaurantDetailScreen } from '../../features/restaurants/screens/restaurant-detail.screen';
 
 import {
   createStackNavigator,
@@ -24,10 +24,7 @@ export const RestaurantsNavigator = () => {
       screenOptions={{ ...TransitionPresets.ModalPresentationIOS, headerShown: false }}
     >
       <RestaurantStack.Screen name="RestaurantsMain" component={RestaurantsScreen} />
-      <RestaurantStack.Screen
-        name="RestaurantDetail"
-        component={() => <Text>Restaurant Detail</Text>}
-      />
+      <RestaurantStack.Screen name="RestaurantDetail" component={RestaurantDetailScreen as any} />
     </RestaurantStack.Navigator>
   );
 };

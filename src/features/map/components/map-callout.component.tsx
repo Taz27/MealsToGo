@@ -3,5 +3,5 @@ import { CompactRestaurantInfo } from '../../../components/restaurant/compact-re
 import { RestuarantTransformed } from '../../../services/restaurants/mock/types';
 
 export const MapCallout: React.FC<{ restaurant: RestuarantTransformed }> = ({ restaurant }) => {
-  return <CompactRestaurantInfo restaurant={restaurant} />;
+  return <CompactRestaurantInfo isMap restaurant={restaurant} />;
 };

@@ -27,10 +27,12 @@ const Item = styled.View`
 
 const isAndroid = Platform.OS === 'android';
 
-export const CompactRestaurantInfo: React.FC<{ restaurant: RestuarantTransformed }> = ({
-  restaurant,
-}) => {
-  const Image: StyledComponent<typeof WebView, any> = isAndroid ? CompactWebview : CompactImage;
+export const CompactRestaurantInfo: React.FC<{
+  restaurant: RestuarantTransformed;
+  isMap: boolean;
+}> = ({ restaurant, isMap }) => {
+  const Image: StyledComponent<typeof WebView, any> =
+    isAndroid && isMap ? CompactWebview : CompactImage;
 
   return (
     <Item>

@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { CompactRestaurantInfo } from '../../../components/restaurant/compact-restaurant-info.component';
 import { RestuarantTransformed } from '../../../services/restaurants/mock/types';
 
-const MyText = styled.Text``;
-export const MapCallout: React.FC<{ restaurant: RestuarantTransformed }> = ({ restaurant }) => (
-  <MyText>{restaurant.name}</MyText>
-);
+export const MapCallout: React.FC<{ restaurant: RestuarantTransformed }> = ({ restaurant }) => {
+  return <CompactRestaurantInfo restaurant={restaurant} />;
+};

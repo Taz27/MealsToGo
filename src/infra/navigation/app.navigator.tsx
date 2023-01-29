@@ -6,6 +6,7 @@ import { OpaqueColorValue, Text } from 'react-native';
 
 import { RestaurantsNavigator } from './restaurants.navigator';
 import { SafeArea } from '../../components/utils/safearea.component';
+import { MapScreen } from '../../features/map/screens/map.screen';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,14 +15,6 @@ const TAB_ICONS = {
   Settings: 'md-settings',
   Map: 'md-map',
 } as const;
-
-function MapScreen() {
-  return (
-    <SafeArea style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Map!</Text>
-    </SafeArea>
-  );
-}
 
 function SettingsScreen() {
   return (

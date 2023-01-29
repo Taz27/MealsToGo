@@ -5,7 +5,20 @@ import { locationRequest, locationTransform } from './location.service';
 export const LocationContext = createContext<{
   isLoading: boolean;
   error: Error | null;
-  location: { lat: number; lng: number } | null;
+  location: {
+    lat: number;
+    lng: number;
+    viewport: {
+      northeast: {
+        lat: number;
+        lng: number;
+      };
+      southwest: {
+        lat: number;
+        lng: number;
+      };
+    };
+  } | null;
   search: (val: string) => void;
   keyword: string;
 }>({
@@ -18,7 +31,20 @@ export const LocationContext = createContext<{
 
 export const LocationContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [keyword, setKeyword] = useState<string>('san francisco');
-  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [location, setLocation] = useState<{
+    lat: number;
+    lng: number;
+    viewport: {
+      northeast: {
+        lat: number;
+        lng: number;
+      };
+      southwest: {
+        lat: number;
+        lng: number;
+      };
+    };
+  } | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 

@@ -22,11 +22,13 @@ export const locationTransform = (response: unknown) => {
   const {
     geometry: {
       location: { lat, lng },
+      viewport,
     },
   } = location;
 
   return {
     lat,
     lng,
+    viewport,
   };
 };

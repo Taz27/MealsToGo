@@ -2045,10 +2045,10 @@
   dependencies:
     "@types/react" "^17"
 
-"@types/react-native@^0.67.7":
-  version "0.67.7"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.67.7.tgz#903b7d56fb6a95ca0de897f2925c04ee0d4adee3"
-  integrity sha512-G7vi9vE226diNNXVNbIa8HH/wPxMWHTHkn9iQtQSezaWzO5WNsKZZW2/TOzCehtBDVx4MZieTs6GsdtpBBttMA==
+"@types/react-native@^0.71.1":
+  version "0.71.1"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.71.1.tgz#215684a5117e2cc7a97425355e8962ad1a67cf0e"
+  integrity sha512-P9wTeYq7M3azvdHmubbIS85X3jiWvGhl4nqSDUAT47JRUJeM4EmoosSy1rKcDgq7fjUVIIDqVEk3qFdupOd0Nw==
   dependencies:
     "@types/react" "*"
 
@@ -6610,10 +6610,10 @@ react-native-gradle-plugin@^0.0.6:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.0.6.tgz#b61a9234ad2f61430937911003cddd7e15c72b45"
   integrity sha512-eIlgtsmDp1jLC24dRn43hB3kEcZVqx6DUQbR0N1ABXGnMEafm9I3V3dUUeD1vh+Dy5WqijSoEwLNUPLgu5zDMg==
 
-react-native-paper@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-5.1.2.tgz#695e273871b17b908299029adadb72492271e586"
-  integrity sha512-muf70CPtji6gTukV+9ecvzOYFOflK2hi4t4GLt9y4Ynhf/YQCvXsefPTp45n7RS6bz9+ueG4jtuGg64oOY8dxA==
+react-native-paper@^5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-5.1.4.tgz#952a2555bff021e7c919ac0fc1c1628d414d49a2"
+  integrity sha512-MpT7zmq/+bSXrKtjUHDKYadTSZvhE2d15oH+Sz77F+xq0/Xqwtg9aX3iHU4x0P92PRubRAbKiLkV0Qi9+beN7g==
   dependencies:
     "@callstack/react-theme-provider" "^3.0.8"
     color "^3.1.2"

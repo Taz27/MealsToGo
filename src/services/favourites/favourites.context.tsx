@@ -1,7 +1,17 @@
 import React, { createContext, useState } from 'react';
 import { RestuarantTransformed } from '../restaurants/mock/types';
 
-export const FavouritesContext = createContext({});
+interface FavouriteContextType {
+  favourites: Array<RestuarantTransformed>;
+  addToFavourites: (r: RestuarantTransformed) => void;
+  removeFromFavourites: (r: RestuarantTransformed) => void;
+}
+
+export const FavouritesContext = createContext<FavouriteContextType>({
+  favourites: [],
+  addToFavourites: () => null,
+  removeFromFavourites: () => null,
+});
 
 export const FavouritesContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

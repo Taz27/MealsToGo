@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ActivityIndicator, MD2Colors } from 'react-native-paper';
 import { View, FlatList, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
@@ -8,8 +8,10 @@ import { Theme } from '../../../infra/theme/types';
 import { Spacer } from '../../../components/spacer/spacer.component';
 import { SafeArea } from '../../../components/utils/safearea.component';
 import { RestuarantsContext } from '../../../services/restaurants/restaurants.context';
+import { FavouritesContext } from '../../../services/favourites/favourites.context';
 import { RestuarantTransformed } from '../../../services/restaurants/mock/types';
 import { StackNavigation } from '../../../infra/navigation/restaurants.navigator';
+import { FavouritesBar } from '../../../components/favourites/favourites-bar.component';
 
 interface ThemeProps {
   theme: Theme;
@@ -32,6 +34,8 @@ const RestaurantList = styled(FlatList).attrs({
 
 export const RestaurantsScreen: React.FC<StackNavigationProps> = ({ navigation }) => {
   const { restaurants, isLoading } = useContext(RestuarantsContext);
+  const { favourites } = useContext(FavouritesContext);
+  const [isToggled, setIsToggled] = useState(false);
 
   if (isLoading) {
     return (
@@ -43,7 +47,8 @@ export const RestaurantsScreen: React.FC<StackNavigationProps> = ({ navigation }
 
   return (
     <SafeArea>
-      <Search />
+      <Search isFavouritesToggled={isToggled} onFavouritesToggle={() => setIsToggled(!isToggled)} />
+      {isToggled && <FavouritesBar favourites={favourites} onNavigate={navigation.navigate} />}
       <RestaurantListContainer>
         <RestaurantList
           data={restaurants}

@@ -7,11 +7,11 @@ import { AccountNavigator } from './account.navigator';
 import { AuthenticationContext } from '../../services/authentication/authentication.context';
 
 export const Navigator: React.FC = () => {
-  const { user: isAuthenticated } = useContext(AuthenticationContext);
+  const { isAuthenticated } = useContext(AuthenticationContext);
 
   return (
     <NavigationContainer>
-      {!isAuthenticated ? <AppNavigator /> : <AccountNavigator />}
+      {isAuthenticated ? <AppNavigator /> : <AccountNavigator />}
     </NavigationContainer>
   );
 };

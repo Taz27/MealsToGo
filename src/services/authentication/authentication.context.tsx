@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import { loginRequest } from './authentication.service';
 
 export const AuthenticationContext = createContext<{
@@ -33,6 +33,10 @@ export const AuthenticationContextProvider: React.FC<{ children: React.ReactNode
         setError(e);
       });
   };
+
+  useEffect(() => {
+    onLogin('taz@mand.io', 'test123');
+  }, []);
 
   return (
     <AuthenticationContext.Provider

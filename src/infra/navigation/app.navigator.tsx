@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer, ParamListBase, RouteProp } from '@react-navigation/native';
+import { ParamListBase, RouteProp } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { OpaqueColorValue, Text } from 'react-native';
@@ -44,11 +44,9 @@ const createScreenOptions = ({ route }: { route: RouteProp<ParamListBase, string
 };
 
 export const AppNavigator = () => (
-  <NavigationContainer>
-    <Tab.Navigator screenOptions={createScreenOptions}>
-      <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
-  </NavigationContainer>
+  <Tab.Navigator screenOptions={createScreenOptions}>
+    <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+    <Tab.Screen name="Map" component={MapScreen} />
+    <Tab.Screen name="Settings" component={SettingsScreen} />
+  </Tab.Navigator>
 );

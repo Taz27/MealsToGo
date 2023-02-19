@@ -11,7 +11,7 @@ export const Navigator: React.FC = () => {
 
   return (
     <NavigationContainer>
-      {isAuthenticated ? <AppNavigator /> : <AccountNavigator />}
+      {!isAuthenticated ? <AppNavigator /> : <AccountNavigator />}
     </NavigationContainer>
   );
 };

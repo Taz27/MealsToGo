@@ -2,11 +2,13 @@ import React, { useState, createContext, useEffect } from 'react';
 import { loginRequest } from './authentication.service';
 
 export const AuthenticationContext = createContext<{
+  isAuthenticated: boolean;
   user: Record<string, any> | null;
   isLoading: boolean;
   error: Error | null;
   onLogin: (e: string, p: string) => void;
 }>({
+  isAuthenticated: false,
   user: null,
   isLoading: false,
   error: null,
@@ -34,13 +36,14 @@ export const AuthenticationContextProvider: React.FC<{ children: React.ReactNode
       });
   };
 
-  useEffect(() => {
-    onLogin('taz@mand.io', 'test123');
-  }, []);
+  // useEffect(() => {
+  //   onLogin('taz@mand.io', 'test123');
+  // }, []);
 
   return (
     <AuthenticationContext.Provider
       value={{
+        isAuthenticated: !!user,
         user,
         isLoading,
         error,

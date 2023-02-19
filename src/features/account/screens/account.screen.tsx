@@ -26,11 +26,7 @@ export const AccountScreen: React.FC<StackNavigationProps> = ({ navigation }) =>
           Login
         </AuthButton>
         <Spacer size="large" position="top">
-          <AuthButton
-            icon="lock-open-outline"
-            mode="contained"
-            onPress={() => navigation.navigate('Register')}
-          >
+          <AuthButton icon="email" mode="contained" onPress={() => navigation.navigate('Register')}>
             Register
           </AuthButton>
         </Spacer>
